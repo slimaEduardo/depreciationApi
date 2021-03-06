@@ -70,18 +70,19 @@ public class UserService {
 	private void updateData(User entity, User obj) {
 		entity.setName(obj.getName());
 		entity.setEmail(obj.getEmail());
-		entity.setTypeUser(obj.getTypeUser());
+
 		}
 
 	public User fromDTO(UserNewDTO objDto) {
-		User usr = new User(objDto.getName(),objDto.getEmail(),TypeUser.toEnum(objDto.getTypeUser()),passwordEncoder.encode(objDto.getPassword()));
+		User usr = new User(objDto.getName(),objDto.getEmail(),passwordEncoder.encode(objDto.getPassword()), objDto.getPhone1(), objDto.getPhone2());
 
 		return usr;
 	}
 
 	public User fromDTO(UserDTO objDto) {
-		User usr = new User(objDto.getName(),objDto.getEmail(),TypeUser.toEnum(objDto.getTypeUser()),null);
+		User usr = new User(objDto.getName(),objDto.getEmail(),null, objDto.getPhone1(), objDto.getPhone2());
 
 		return usr;
 	}
+
 }

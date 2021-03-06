@@ -72,7 +72,6 @@ public class ProductService {
 	private void updateData(Product entity, Product obj) {
 		entity.setName(obj.getName());
 		entity.setDescription(obj.getDescription());
-		entity.setCompany(obj.getCompany());
 		entity.setInvoicePath(obj.getInvoicePath());
 		}
 

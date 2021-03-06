@@ -18,8 +18,10 @@ public class UserDTO  implements Serializable {
     @NotEmpty(message = "Campo Obrigatório.")
     @Length(min = 3, max = 80, message = "O nome deve ter entre três e oitenta caracteres.")
     private String name;
-    private TypeUser typeUser;
+
     private String email;
+    private String phone1;
+    private String phone2;
 
     public UserDTO() {
 
@@ -28,7 +30,8 @@ public class UserDTO  implements Serializable {
         this.id = obj.getId();
         this.name = obj.getName();
         this.email = obj.getEmail();
-
+        this.phone1 = obj.getPhone1();
+        this.phone2 = obj.getPhone2();
     }
 
     public Integer getId() {
@@ -49,10 +52,20 @@ public class UserDTO  implements Serializable {
     public void setEmail(String email) {
         this.email = email;
     }
-    public String getTypeUser() {
-        return typeUser.getTypeUser();
+
+    public String getPhone1() {
+        return phone1;
     }
-    public void setTypeUser(TypeUser typeUser) {
-        this.typeUser = typeUser;
+
+    public void setPhone1(String phone1) {
+        this.phone1 = phone1;
+    }
+
+    public String getPhone2() {
+        return phone2;
+    }
+
+    public void setPhone2(String phone2) {
+        this.phone2 = phone2;
     }
 }

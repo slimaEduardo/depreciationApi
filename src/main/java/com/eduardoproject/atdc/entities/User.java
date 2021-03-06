@@ -22,13 +22,17 @@ public class User implements Serializable {
     private String email;
     @JsonIgnore
     private String password;
-    private TypeUser typeUser;
+
     @ElementCollection(fetch=FetchType.EAGER)
     @CollectionTable(name = "tb_profiles")
     private Set<Integer> profiles = new HashSet<>();
-    @ElementCollection
-    @CollectionTable(name = "tb_phones")
-    private Set<String> tels = new HashSet<>();
+
+
+    @JoinColumn(name = "tb_phones")
+    private String phone1;
+
+    @JoinColumn(name = "tb_phones")
+    private String phone2;
 
 
 
@@ -36,22 +40,32 @@ public class User implements Serializable {
         addProfile(UserProfile.USER);
     }
 
-    public User(String name, String email, TypeUser typeUser, String password) {
+    public User(String name, String email, String password) {
         this.name = name;
         this.email = email;
-        this.typeUser = typeUser;
+
         this.password = password;
         addProfile(UserProfile.USER);
         }
 
-
-    public TypeUser getTypeUser() {
-        return typeUser;
+    public User(String name, String email, String password, String phone1) {
+        this.name = name;
+        this.email = email;
+        this.phone1 = phone1;
+        this.password = password;
+        addProfile(UserProfile.USER);
     }
 
-    public void setTypeUser(TypeUser typeUser) {
-        this.typeUser = typeUser;
+    public User(String name, String email, String password, String phone1, String phone2) {
+        this.name = name;
+        this.email = email;
+        this.password = password;
+        this.phone1 = phone1;
+        this.phone2 = phone2;
+        addProfile(UserProfile.USER);
     }
+
+
 
     public String getPassword() {
         return password;
@@ -91,12 +105,20 @@ public class User implements Serializable {
         this.email = email;
     }
 
-    public Set<String> getTels() {
-        return tels;
+    public String getPhone1() {
+        return phone1;
     }
 
-    public void setTels(Set<String> tels) {
-        this.tels = tels;
+    public void setPhone1(String phone1) {
+        this.phone1 = phone1;
+    }
+
+    public String getPhone2() {
+        return phone2;
+    }
+
+    public void setPhone2(String phone2) {
+        this.phone2 = phone2;
     }
 
     @Override

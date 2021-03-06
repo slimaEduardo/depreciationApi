@@ -20,7 +20,8 @@ public class UserNewDTO implements Serializable {
     private String email;
     @NotEmpty(message = "Campo Obrigatório.")
     private String password;
-    private TypeUser typeUser;
+    private String phone1;
+    private String phone2;
 
     public UserNewDTO() {
     }
@@ -49,11 +50,19 @@ public class UserNewDTO implements Serializable {
         this.email = email;
     }
 
-    public String getTypeUser() {
-        return typeUser.getTypeUser();
+    public String getPhone1() {
+        return phone1;
     }
 
-    public void setTypeUser(TypeUser typeUser) {
-        this.typeUser = typeUser;
+    public void setPhone1(String phone1) {
+        this.phone1 = phone1;
+    }
+
+    public String getPhone2() {
+        return phone2;
+    }
+
+    public void setPhone2(String phone2) {
+        this.phone2 = phone2;
     }
 }

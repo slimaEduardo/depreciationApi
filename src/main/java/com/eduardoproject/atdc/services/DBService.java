@@ -98,12 +98,9 @@ public class DBService {
         p10.setCompany(c2);
         p11.setCompany(c1);
 
-        User user1 = new User("Maria Silva", "maria@gmail.com", TypeUser.USER,passwordEncoder.encode("123"));
-        User user2 = new User("Jose Santos", "jose@gmail.com", TypeUser.ADMIN, passwordEncoder.encode("123"));
-        User user3 = new User("Joao Maia", "joao@gmail.com", TypeUser.USER, passwordEncoder.encode("123"));
-
-        user1.getTels().addAll(Arrays.asList("1234567","12323345"));
-        user2.getTels().addAll(Arrays.asList("406441663","882132125"));
+        User user1 = new User("Maria Silva", "maria@gmail.com", passwordEncoder.encode("123"),"1234567","12323345");
+        User user2 = new User("Jose Santos", "jose@gmail.com", passwordEncoder.encode("123"),"406441663","882132125");
+        User user3 = new User("Joao Maia", "joao@gmail.com",  passwordEncoder.encode("123"));
 
         user1.addProfile(UserProfile.USER);
         user2.addProfile(UserProfile.ADMIN);
