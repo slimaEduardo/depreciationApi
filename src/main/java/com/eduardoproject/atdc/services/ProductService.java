@@ -40,11 +40,10 @@ public class ProductService {
 	}
 	
 	public Product insert(Product obj) {
-		//Category aux = categoryService.findById(obj.getCategoryId());
-		obj.setCategory(categoryService.findById(obj.getCategoryId()));
 
+		obj.setCategory(categoryService.findById(obj.getCategoryId()));
 		obj.setCompany(companyService.findById(obj.getCompanyId()));
-		System.out.println("Chegou aqui:" + obj.getCategory().getName() + obj.getCompany().getName());
+		//System.out.println("Chegou aqui:" + obj.getCategory().getName() + obj.getCompany().getName());
 		return repository.save(obj);
 	}
 

@@ -43,6 +43,7 @@ public class UserService {
 	}
 	
 	public User insert(User obj) {
+		obj.addProfile(UserProfile.toEnum(obj.getProfileId()));
 		return repository.save(obj);
 	}
 
@@ -70,17 +71,18 @@ public class UserService {
 	private void updateData(User entity, User obj) {
 		entity.setName(obj.getName());
 		entity.setEmail(obj.getEmail());
-
+		entity.setPhone1(obj.getPhone1());
+		entity.setPhone2(obj.getPhone2());
 		}
 
 	public User fromDTO(UserNewDTO objDto) {
-		User usr = new User(objDto.getName(),objDto.getEmail(),passwordEncoder.encode(objDto.getPassword()), objDto.getPhone1(), objDto.getPhone2());
+		User usr = new User(objDto.getName(),objDto.getEmail(),passwordEncoder.encode(objDto.getPassword()), objDto.getPhone1(), objDto.getPhone2(), objDto.getProfileId());
 
 		return usr;
 	}
 
 	public User fromDTO(UserDTO objDto) {
-		User usr = new User(objDto.getName(),objDto.getEmail(),null, objDto.getPhone1(), objDto.getPhone2());
+		User usr = new User(objDto.getName(),objDto.getEmail(),null, objDto.getPhone1(), objDto.getPhone2(), objDto.getProfileId());
 
 		return usr;
 	}

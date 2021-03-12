@@ -22,6 +22,7 @@ public class UserNewDTO implements Serializable {
     private String password;
     private String phone1;
     private String phone2;
+    private Integer profileId;
 
     public UserNewDTO() {
     }
@@ -64,5 +65,13 @@ public class UserNewDTO implements Serializable {
 
     public void setPhone2(String phone2) {
         this.phone2 = phone2;
+    }
+
+    public Integer getProfileId() {
+        return profileId;
+    }
+
+    public void setProfileId(Integer profileId) {
+        this.profileId = profileId;
     }
 }

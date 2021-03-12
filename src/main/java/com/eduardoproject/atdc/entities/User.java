@@ -26,8 +26,8 @@ public class User implements Serializable {
     @ElementCollection(fetch=FetchType.EAGER)
     @CollectionTable(name = "tb_profiles")
     private Set<Integer> profiles = new HashSet<>();
-
-
+    @Transient
+    private Integer profileId;
     @JoinColumn(name = "tb_phones")
     private String phone1;
 
@@ -40,28 +40,30 @@ public class User implements Serializable {
         addProfile(UserProfile.USER);
     }
 
-    public User(String name, String email, String password) {
+    public User(String name, String email, String password, Integer profileId) {
         this.name = name;
         this.email = email;
-
+        this.profileId = profileId;
         this.password = password;
         addProfile(UserProfile.USER);
         }
 
-    public User(String name, String email, String password, String phone1) {
+    public User(String name, String email, String password, String phone1, Integer profileId) {
         this.name = name;
         this.email = email;
         this.phone1 = phone1;
         this.password = password;
+        this.profileId = profileId;
         addProfile(UserProfile.USER);
     }
 
-    public User(String name, String email, String password, String phone1, String phone2) {
+    public User(String name, String email, String password, String phone1, String phone2, Integer profileId) {
         this.name = name;
         this.email = email;
         this.password = password;
         this.phone1 = phone1;
         this.phone2 = phone2;
+        this.profileId = profileId;
         addProfile(UserProfile.USER);
     }
 
@@ -119,6 +121,14 @@ public class User implements Serializable {
 
     public void setPhone2(String phone2) {
         this.phone2 = phone2;
+    }
+
+    public Integer getProfileId() {
+        return profileId;
+    }
+
+    public void setProfileId(Integer profileId) {
+        this.profileId = profileId;
     }
 
     @Override

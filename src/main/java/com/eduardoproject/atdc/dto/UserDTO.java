@@ -22,6 +22,7 @@ public class UserDTO  implements Serializable {
     private String email;
     private String phone1;
     private String phone2;
+    private  Integer profileId;
 
     public UserDTO() {
 
@@ -32,6 +33,7 @@ public class UserDTO  implements Serializable {
         this.email = obj.getEmail();
         this.phone1 = obj.getPhone1();
         this.phone2 = obj.getPhone2();
+        this.profileId = obj.getProfileId();
     }
 
     public Integer getId() {
@@ -67,5 +69,13 @@ public class UserDTO  implements Serializable {
 
     public void setPhone2(String phone2) {
         this.phone2 = phone2;
+    }
+
+    public Integer getProfileId() {
+        return profileId;
+    }
+
+    public void setProfileId(Integer profileId) {
+        this.profileId = profileId;
     }
 }

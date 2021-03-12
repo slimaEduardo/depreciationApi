@@ -35,10 +35,8 @@ public class Product implements Serializable {
 	private String invoicePath;
 
 	@Transient
-
 	private Integer categoryId;
 	@Transient
-
 	private Integer companyId;
 
 	@JsonIgnore

@@ -49,8 +49,8 @@ public class TestConfig implements CommandLineRunner{
 		Company c1 = new Company("Maria's SexShop", "Festa da Maria", "988888888");
 		Company c2 = new Company("Clinica da Felicidade Ltda", "Clinica de aborto Feto Feliz", "977777777");
 
-		User user1 = new User("Maria Silva", "maria@gmail.com", passwordEncoder.encode("123"),"1234567","12323345");
-		User user2 = new User("Jose Santos", "jose@gmail.com", passwordEncoder.encode("123"),"406441663","882132125");
+		User user1 = new User("Maria Silva", "maria@gmail.com", passwordEncoder.encode("123"),"1234567","12323345", 2);
+		User user2 = new User("Jose Santos", "jose@gmail.com", passwordEncoder.encode("123"),"406441663","882132125", 1);
 
 		user1.addProfile(UserProfile.USER);
 		user2.addProfile(UserProfile.ADMIN);
